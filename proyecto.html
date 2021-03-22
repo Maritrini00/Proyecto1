@@ -6,22 +6,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Billar</title>
 </head>
-<body>
-    
-        
+    <body>
         <table class="tftable" border="1">
         <tr><th>Mesa 1</th><th>Mesa 2</th><th>Mesa 3</th></tr>
-        <tr><td><img border="0" alt="Facultad de ingenieria" src="mesaOff.PNG" style="width: 200px" ></td>
-            <td><img border="0" alt="Facultad de ingenieria" src="mesaOff.PNG" style="width: 200px" ></td>
-            <td><img border="0" alt="Facultad de ingenieria" src="mesaOn.PNG" style="width: 200px" ></td></tr>
-        <tr><td>Row:2 Cell:1</td><td>Row:2 Cell:2</td><td>Row:2 Cell:3</td></tr>
+        <tr><td><img border="0" alt="Facultad de ingenieria" src="mesaOff.PNG" style="width: 200px" id= "mesa1" onclick="cambiarImagen1()"></td>
+            <td><img border="0" alt="Facultad de ingenieria" src="mesaOff.PNG" style="width: 200px" id= "mesa2" onclick="cambiarImagen2()"></td>
+            <td><img border="0" alt="Facultad de ingenieria" src="mesaOn.PNG" style="width: 200px"  id= "mesa3" onclick="cambiarImagen3()"></td></tr>
+        <!--<tr><td>Row:2 Cell:1</td>!
+            <td>Row:2 Cell:2</td>
+            <td>Row:2 Cell:3</td></tr>-->
         <tr><th>Mesa 4</th><th>Mesa 5</th><th>Mesa 6</th></tr>
-        <tr><td><img border="0" alt="Facultad de ingenieria" src="mesaOff.PNG" style="width: 200px" ></td>
-            <td><img border="0" alt="Facultad de ingenieria" src="mesaOn.PNG" style="width: 200px" ></td>
-            <td><img border="0" alt="Facultad de ingenieria" src="mesaOn.PNG" style="width: 200px" ></td></tr>
-        <tr><td>Row:5 Cell:1</td><td>Row:5 Cell:2</td><td>Row:5 Cell:3</td></tr>
+        <tr><td><img border="0" alt="Facultad de ingenieria" src="mesaOff.PNG" style="width: 200px"  id= "mesa4" onclick="cambiarImagen4()"></td>
+            <td><img border="0" alt="Facultad de ingenieria" src="mesaOn.PNG" style="width: 200px" id= "mesa5" onclick="cambiarImagen5()"></td>
+            <td><img border="0" alt="Facultad de ingenieria" src="mesaOn.PNG" style="width: 200px" id= "mesa6" onclick="cambiarImagen6()"></td></tr>
+        <!--<tr><td>Row:5 Cell:1</td>
+            <td>Row:5 Cell:2</td>
+            <td>Row:5 Cell:3</td></tr>-->
         </table>
         
+        <script>
+            const cambiarImagen1=()=>{
+            let mesa1=document.getElementById("mesa1");
+            if(mesa1.src.match('mesaOff.PNG')){
+                mesa1.src='mesaOn.PNG'
+            }else{
+                mesa1.src='mesaOff.PNG'
+                }
+            }
+            const cambiarImagen2=()=>{
+                let mesa2=document.getElementById("mesa2");
+                if(mesa2.src.match('mesaOff.PNG')){
+                mesa2.src='mesaOn.PNG'
+                }else{
+                mesa2.src='mesaOff.PNG'
+                }
+            }
+            
+            const cambiarImagen3=()=>{
+                let mesa3=document.getElementById("mesa3");
+                if(mesa3.src.match('mesaOff.PNG')){
+                mesa3.src='mesaOn.PNG'
+                }else{
+                mesa3.src='mesaOff.PNG'
+                }
+            }
+
+            const cambiarImagen4=()=>{
+                let mesa4=document.getElementById("mesa4");
+                if(mesa4.src.match('mesaOff.PNG')){
+                mesa4.src='mesaOn.PNG'
+                }else{
+                mesa4.src='mesaOff.PNG'
+                }
+            }
+
+            const cambiarImagen5=()=>{
+                let mesa5=document.getElementById("mesa5");
+                if(mesa5.src.match('mesaOff.PNG')){
+                mesa5.src='mesaOn.PNG'
+                }else{
+                mesa5.src='mesaOff.PNG'
+                }
+            }
+
+            const cambiarImagen6=()=>{
+                let mesa6=document.getElementById("mesa6");
+                if(mesa6.src.match('mesaOff.PNG')){
+                mesa6.src='mesaOn.PNG'
+                }else{
+                mesa6.src='mesaOff.PNG'
+                }
+            }
+
+        </script>
         
-</body>
+    </body>
 </html>
