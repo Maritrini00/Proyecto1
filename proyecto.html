@@ -4,82 +4,151 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Billar</title>
+    <title>Bola Ocho</title>
+    <style type="text/css">
+        h1 { text-align: center}
+    </style>
 </head>
-    <body>
-        <table class="tftable" border="1">
+    <body onload="mueveReloj()">
+        <h1>Bola Ocho Billar</h1> 
+        <div style="text-align:center;"></div>
+        <table class="tftable" border="1" style="margin: 0 auto;">
         <tr><th>Mesa 1</th><th>Mesa 2</th><th>Mesa 3</th></tr>
-        <tr><td><img border="0" alt="Facultad de ingenieria" src="mesaOff.PNG" style="width: 200px" id= "mesa1" onclick="RentaMesa1()"></td>
+        <tr><td><img border="0" alt="Facultad de ingenieria" src="mesaOff.PNG" style="width: 200px" id= "mesa1" onclick="RentaMesa1()">
+        </td>
             <td><img border="0" alt="Facultad de ingenieria" src="mesaOff.PNG" style="width: 200px" id= "mesa2" onclick="RentaMesa2()"></td>
-            <td><img border="0" alt="Facultad de ingenieria" src="mesaOn.PNG" style="width: 200px"  id= "mesa3" onclick="RentaMesa3()"></td></tr>
-        <!--<tr><td>Row:2 Cell:1</td>!
-            <td>Row:2 Cell:2</td>
-            <td>Row:2 Cell:3</td></tr>-->
+            <td><img border="0" alt="Facultad de ingenieria" src="mesaOff.PNG" style="width: 200px"  id= "mesa3" onclick="RentaMesa3()"></td></tr>
+            <tr><td><p>Hora de inicio:</p><input type="text" id="horaInicio1"/></td>
+            <td><p>Hora de inicio:</p><input type="text" id="horaInicio2"/></td>
+            <td><p>Hora de inicio:</p><input type="text" id="horaInicio3"/></td></tr>
         <tr><th>Mesa 4</th><th>Mesa 5</th><th>Mesa 6</th></tr>
         <tr><td><img border="0" alt="Facultad de ingenieria" src="mesaOff.PNG" style="width: 200px"  id= "mesa4" onclick="RentaMesa4()"></td>
-            <td><img border="0" alt="Facultad de ingenieria" src="mesaOn.PNG" style="width: 200px" id= "mesa5" onclick="RentaMesa5()"></td>
-            <td><img border="0" alt="Facultad de ingenieria" src="mesaOn.PNG" style="width: 200px" id= "mesa6" onclick="RentaMesa6()"></td></tr>
-        <!--<tr><td>Row:5 Cell:1</td>
-            <td>Row:5 Cell:2</td>
-            <td>Row:5 Cell:3</td></tr>-->
+            <td><img border="0" alt="Facultad de ingenieria" src="mesaOff.PNG" style="width: 200px" id= "mesa5" onclick="RentaMesa5()"></td>
+            <td><img border="0" alt="Facultad de ingenieria" src="mesaOff.PNG" style="width: 200px" id= "mesa6" onclick="RentaMesa6()"></td></tr>
+            <tr><td><p>Hora de inicio:</p><input type="text" id="horaInicio4"/></td>
+            <td><p>Hora de inicio:</p><input type="text" id="horaInicio5"/></td>
+            <td><p>Hora de inicio:</p><input type="text" id="horaInicio6"/></td></tr>
         </table>
-        
+        </div>
         <script>
+            
             const RentaMesa1=()=>{
+            var laHora = new Date();
+            var horario = laHora.getHours();
+            var minutero = laHora.getMinutes();
+            var segundero = laHora.getSeconds();
             let mesa1=document.getElementById("mesa1");
             if(mesa1.src.match('mesaOff.PNG')){
                 mesa1.src='mesaOn.PNG'
+                if(minutero<10)
+                    minutero = "0" + minutero;
+                if(segundero<10)
+                    segundero = "0" + segundero;
+                document.getElementById('horaInicio1').value = horario+":"+minutero+":"+segundero;
+                ahoraSonLas = setTimeout(ActivarReloj,1000);
             }else{
                 mesa1.src='mesaOff.PNG'
+                clearTimeout(ahoraSonLas);
                 }
             }
             
             const RentaMesa2=()=>{
+                var laHora = new Date();
+                var horario = laHora.getHours();
+                var minutero = laHora.getMinutes();
+                var segundero = laHora.getSeconds();
                 let mesa2=document.getElementById("mesa2");
                 if(mesa2.src.match('mesaOff.PNG')){
                 mesa2.src='mesaOn.PNG'
-                }else{
+                if(minutero<10)
+                    minutero = "0" + minutero;
+                if(segundero<10)
+                    segundero = "0" + segundero;
+                document.getElementById('horaInicio2').value = horario+":"+minutero+":"+segundero;
+                }else{        
                 mesa2.src='mesaOff.PNG'
+                clearTimeout(ahoraSonLas);
                 }
             }
             
             const RentaMesa3=()=>{
+                var laHora = new Date();
+                var horario = laHora.getHours();
+                var minutero = laHora.getMinutes();
+                var segundero = laHora.getSeconds();
                 let mesa3=document.getElementById("mesa3");
                 if(mesa3.src.match('mesaOff.PNG')){
                 mesa3.src='mesaOn.PNG'
+                if(minutero<10)
+                    minutero = "0" + minutero;
+                if(segundero<10)
+                    segundero = "0" + segundero;
+                document.getElementById('horaInicio3').value = horario+":"+minutero+":"+segundero;
                 }else{
                 mesa3.src='mesaOff.PNG'
+                clearTimeout(ahoraSonLas);
                 }
             }
 
             const RentaMesa4=()=>{
+                var laHora = new Date();
+                var horario = laHora.getHours();
+                var minutero = laHora.getMinutes();
+                var segundero = laHora.getSeconds();
                 let mesa4=document.getElementById("mesa4");
                 if(mesa4.src.match('mesaOff.PNG')){
                 mesa4.src='mesaOn.PNG'
+                if(minutero<10)
+                    minutero = "0" + minutero;
+                if(segundero<10)
+                    segundero = "0" + segundero;
+                document.getElementById('horaInicio4').value = horario+":"+minutero+":"+segundero;
                 }else{
                 mesa4.src='mesaOff.PNG'
+                clearTimeout(ahoraSonLas);
                 }
             }
 
             const RentaMesa5=()=>{
+                var laHora = new Date();
+                var horario = laHora.getHours();
+                var minutero = laHora.getMinutes();
+                var segundero = laHora.getSeconds();
                 let mesa5=document.getElementById("mesa5");
                 if(mesa5.src.match('mesaOff.PNG')){
                 mesa5.src='mesaOn.PNG'
+                if(minutero<10)
+                    minutero = "0" + minutero;
+                if(segundero<10)
+                    segundero = "0" + segundero;
+                document.getElementById('horaInicio5').value = horario+":"+minutero+":"+segundero;
                 }else{
                 mesa5.src='mesaOff.PNG'
+                clearTimeout(ahoraSonLas);
                 }
             }
 
             const RentaMesa6=()=>{
+                var laHora = new Date();
+                var horario = laHora.getHours();
+                var minutero = laHora.getMinutes();
+                var segundero = laHora.getSeconds();
                 let mesa6=document.getElementById("mesa6");
                 if(mesa6.src.match('mesaOff.PNG')){
                 mesa6.src='mesaOn.PNG'
+                if(minutero<10)
+                    minutero = "0" + minutero;
+                if(segundero<10)
+                    segundero = "0" + segundero;
+                document.getElementById('horaInicio6').value = horario+":"+minutero+":"+segundero;
                 }else{
                 mesa6.src='mesaOff.PNG'
+                clearTimeout(ahoraSonLas);
                 }
             }
 
         </script>
-        
+
+        <br><br>      
     </body>
 </html>
