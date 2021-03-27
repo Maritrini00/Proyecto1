@@ -9,146 +9,78 @@
         h1 { text-align: center}
     </style>
 </head>
-    <body onload="mueveReloj()">
+    <body >
         <h1>Bola Ocho Billar</h1> 
         <div style="text-align:center;"></div>
         <table class="tftable" border="1" style="margin: 0 auto;">
         <tr><th>Mesa 1</th><th>Mesa 2</th><th>Mesa 3</th></tr>
-        <tr><td><img border="0" alt="Facultad de ingenieria" src="mesaOff.PNG" style="width: 200px" id= "mesa1" onclick="RentaMesa1()">
-        </td>
-            <td><img border="0" alt="Facultad de ingenieria" src="mesaOff.PNG" style="width: 200px" id= "mesa2" onclick="RentaMesa2()"></td>
-            <td><img border="0" alt="Facultad de ingenieria" src="mesaOff.PNG" style="width: 200px"  id= "mesa3" onclick="RentaMesa3()"></td></tr>
-            <tr><td><p>Hora de inicio:</p><input type="text" id="horaInicio1"/></td>
-            <td><p>Hora de inicio:</p><input type="text" id="horaInicio2"/></td>
-            <td><p>Hora de inicio:</p><input type="text" id="horaInicio3"/></td></tr>
+            <tr><td><img border="0" alt="Facultad de ingenieria" src="mesaOff.PNG" style="width: 200px" id= "Mesa1" onclick="RentaMesa(id)">
+            <p id="inicioMesa1">Hora de Inicio: </p>
+            <p id= "finMesa1">Hora Final: </p>
+            <p id= "precio1">Precio: </p></td>
+            <td><img border="0" alt="Facultad de ingenieria" src="mesaOff.PNG" style="width: 200px" id= "Mesa2" onclick="RentaMesa(id);">
+            <p id="inicioMesa2">Hora de Inicio: </p>
+            <p id= "finMesa2">Hora Final: </p>
+            <p id= "precio2">Precio: </p></td>
+            <td><img border="0" alt="Facultad de ingenieria" src="mesaOff.PNG" style="width: 200px"  id= "Mesa3" onclick="RentaMesa(id);">
+            <p id="inicioMesa3">Hora de Inicio: </p>
+            <p id= "finMesa3">Hora Final: </p>
+            <p id= "precio3">Precio: </p></td></tr>
         <tr><th>Mesa 4</th><th>Mesa 5</th><th>Mesa 6</th></tr>
-        <tr><td><img border="0" alt="Facultad de ingenieria" src="mesaOff.PNG" style="width: 200px"  id= "mesa4" onclick="RentaMesa4()"></td>
-            <td><img border="0" alt="Facultad de ingenieria" src="mesaOff.PNG" style="width: 200px" id= "mesa5" onclick="RentaMesa5()"></td>
-            <td><img border="0" alt="Facultad de ingenieria" src="mesaOff.PNG" style="width: 200px" id= "mesa6" onclick="RentaMesa6()"></td></tr>
-            <tr><td><p>Hora de inicio:</p><input type="text" id="horaInicio4"/></td>
-            <td><p>Hora de inicio:</p><input type="text" id="horaInicio5"/></td>
-            <td><p>Hora de inicio:</p><input type="text" id="horaInicio6"/></td></tr>
+            <tr><td><img border="0" alt="Facultad de ingenieria" src="mesaOff.PNG" style="width: 200px"  id= "Mesa4" onclick="RentaMesa(id)">
+            <p id="inicioMesa4">Hora de Inicio: </p>
+            <p id="finMesa4">Hora Final: </p>
+            <p id="precio4">Precio: </p></td>
+            <td><img border="0" alt="Facultad de ingenieria" src="mesaOff.PNG" style="width: 200px" id= "Mesa5" onclick="RentaMesa(id)">
+            <p id="inicioMesa5">Hora de Inicio: </p>
+            <p id="finMesa5">Hora Final: </p>
+            <p id="precio5">Precio: </p></td>
+            <td><img border="0" alt="Facultad de ingenieria" src="mesaOff.PNG" style="width: 200px" id= "Mesa6" onclick="RentaMesa(id)">
+            <p id="inicioMesa6">Hora de Inicio: </p>
+            <p id="finMesa6">Hora Final: </p>
+            <p id="precio6">Precio: </p></td></tr>
+            
         </table>
         </div>
         <script>
             
-            const RentaMesa1=()=>{
-            var laHora = new Date();
-            var horario = laHora.getHours();
-            var minutero = laHora.getMinutes();
-            var segundero = laHora.getSeconds();
-            let mesa1=document.getElementById("mesa1");
-            if(mesa1.src.match('mesaOff.PNG')){
-                mesa1.src='mesaOn.PNG'
-                if(minutero<10)
-                    minutero = "0" + minutero;
-                if(segundero<10)
-                    segundero = "0" + segundero;
-                document.getElementById('horaInicio1').value = horario+":"+minutero+":"+segundero;
-                ahoraSonLas = setTimeout(ActivarReloj,1000);
+            const RentaMesa= mesaID =>{
+            let mesa=document.getElementById(mesaID);
+
+            if(mesa.src.match('mesaOff.PNG')){
+                mesa.src='mesaOn.PNG';
+                tiempo(mesaID,"si");
+                return;
             }else{
-                mesa1.src='mesaOff.PNG'
-                clearTimeout(ahoraSonLas);
+                mesa.src='mesaOff.PNG';
+                tiempo(mesaID,"no");
                 }
-            }
             
-            const RentaMesa2=()=>{
-                var laHora = new Date();
-                var horario = laHora.getHours();
-                var minutero = laHora.getMinutes();
-                var segundero = laHora.getSeconds();
-                let mesa2=document.getElementById("mesa2");
-                if(mesa2.src.match('mesaOff.PNG')){
-                mesa2.src='mesaOn.PNG'
-                if(minutero<10)
-                    minutero = "0" + minutero;
-                if(segundero<10)
-                    segundero = "0" + segundero;
-                document.getElementById('horaInicio2').value = horario+":"+minutero+":"+segundero;
-                }else{        
-                mesa2.src='mesaOff.PNG'
-                clearTimeout(ahoraSonLas);
-                }
-            }
+        }
             
-            const RentaMesa3=()=>{
-                var laHora = new Date();
-                var horario = laHora.getHours();
-                var minutero = laHora.getMinutes();
-                var segundero = laHora.getSeconds();
-                let mesa3=document.getElementById("mesa3");
-                if(mesa3.src.match('mesaOff.PNG')){
-                mesa3.src='mesaOn.PNG'
-                if(minutero<10)
-                    minutero = "0" + minutero;
-                if(segundero<10)
-                    segundero = "0" + segundero;
-                document.getElementById('horaInicio3').value = horario+":"+minutero+":"+segundero;
-                }else{
-                mesa3.src='mesaOff.PNG'
-                clearTimeout(ahoraSonLas);
-                }
-            }
+            const tiempo = (mesaID,renta) =>{
+                let inicioRenta =document.getElementById("inicio"+mesaID)
+                let finRenta= document.getElementById("fin"+mesaID)
 
-            const RentaMesa4=()=>{
-                var laHora = new Date();
-                var horario = laHora.getHours();
-                var minutero = laHora.getMinutes();
-                var segundero = laHora.getSeconds();
-                let mesa4=document.getElementById("mesa4");
-                if(mesa4.src.match('mesaOff.PNG')){
-                mesa4.src='mesaOn.PNG'
+                let laHora = new Date();
+                let horario = laHora.getHours();
+                let minutero = laHora.getMinutes();
+                let segundero = laHora.getSeconds();
                 if(minutero<10)
                     minutero = "0" + minutero;
                 if(segundero<10)
                     segundero = "0" + segundero;
-                document.getElementById('horaInicio4').value = horario+":"+minutero+":"+segundero;
-                }else{
-                mesa4.src='mesaOff.PNG'
-                clearTimeout(ahoraSonLas);
-                }
-            }
 
-            const RentaMesa5=()=>{
-                var laHora = new Date();
-                var horario = laHora.getHours();
-                var minutero = laHora.getMinutes();
-                var segundero = laHora.getSeconds();
-                let mesa5=document.getElementById("mesa5");
-                if(mesa5.src.match('mesaOff.PNG')){
-                mesa5.src='mesaOn.PNG'
-                if(minutero<10)
-                    minutero = "0" + minutero;
-                if(segundero<10)
-                    segundero = "0" + segundero;
-                document.getElementById('horaInicio5').value = horario+":"+minutero+":"+segundero;
-                }else{
-                mesa5.src='mesaOff.PNG'
-                clearTimeout(ahoraSonLas);
+                if(renta=="si" && inicioRenta.innerHTML=="Hora de Inicio: "){
+                    inicioRenta.innerHTML= "Hora de Inicio: "+horario+":"+minutero+":"+segundero;
                 }
-            }
-
-            const RentaMesa6=()=>{
-                var laHora = new Date();
-                var horario = laHora.getHours();
-                var minutero = laHora.getMinutes();
-                var segundero = laHora.getSeconds();
-                let mesa6=document.getElementById("mesa6");
-                if(mesa6.src.match('mesaOff.PNG')){
-                mesa6.src='mesaOn.PNG'
-                if(minutero<10)
-                    minutero = "0" + minutero;
-                if(segundero<10)
-                    segundero = "0" + segundero;
-                document.getElementById('horaInicio6').value = horario+":"+minutero+":"+segundero;
-                }else{
-                mesa6.src='mesaOff.PNG'
-                clearTimeout(ahoraSonLas);
+                if(renta=="no" && finRenta.innerHTML=="Hora Final: "){
+                    finRenta.innerHTML= "Hora Final: "+horario+":"+minutero+":"+segundero;
                 }
             }
 
         </script>
-
+ 
         <br><br>      
     </body>
 </html>
