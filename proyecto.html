@@ -5,82 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bola Ocho</title>
-    <style type="text/css">
-        h1 { text-align: center}
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
     <body >
         <h1>Bola Ocho Billar</h1> 
-        <div style="text-align:center;"></div>
-        <table class="tftable" border="1" style="margin: 0 auto;">
+        <h2>A $50 la renta por hora</h2>
+        <div ></div>
+        <table class="tftable" border="1" >
         <tr><th>Mesa 1</th><th>Mesa 2</th><th>Mesa 3</th></tr>
             <tr><td><img border="0" alt="Facultad de ingenieria" src="mesaOff.PNG" style="width: 200px" id= "Mesa1" onclick="RentaMesa(id)">
             <p id="inicioMesa1">Hora de Inicio: </p>
             <p id= "finMesa1">Hora Final: </p>
-            <p id= "precio1">Precio: </p></td>
+            <p id= "precioMesa1">Precio: 0</p></td>
             <td><img border="0" alt="Facultad de ingenieria" src="mesaOff.PNG" style="width: 200px" id= "Mesa2" onclick="RentaMesa(id);">
             <p id="inicioMesa2">Hora de Inicio: </p>
             <p id= "finMesa2">Hora Final: </p>
-            <p id= "precio2">Precio: </p></td>
+            <p id= "precioMesa2">Precio: 0</p></td>
             <td><img border="0" alt="Facultad de ingenieria" src="mesaOff.PNG" style="width: 200px"  id= "Mesa3" onclick="RentaMesa(id);">
             <p id="inicioMesa3">Hora de Inicio: </p>
             <p id= "finMesa3">Hora Final: </p>
-            <p id= "precio3">Precio: </p></td></tr>
+            <p id= "precioMesa3">Precio: 0</p></td></tr>
         <tr><th>Mesa 4</th><th>Mesa 5</th><th>Mesa 6</th></tr>
             <tr><td><img border="0" alt="Facultad de ingenieria" src="mesaOff.PNG" style="width: 200px"  id= "Mesa4" onclick="RentaMesa(id)">
             <p id="inicioMesa4">Hora de Inicio: </p>
             <p id="finMesa4">Hora Final: </p>
-            <p id="precio4">Precio: </p></td>
+            <p id="precioMesa4">Precio: 0</p></td>
             <td><img border="0" alt="Facultad de ingenieria" src="mesaOff.PNG" style="width: 200px" id= "Mesa5" onclick="RentaMesa(id)">
             <p id="inicioMesa5">Hora de Inicio: </p>
             <p id="finMesa5">Hora Final: </p>
-            <p id="precio5">Precio: </p></td>
+            <p id="precioMesa5">Precio: 0</p></td>
             <td><img border="0" alt="Facultad de ingenieria" src="mesaOff.PNG" style="width: 200px" id= "Mesa6" onclick="RentaMesa(id)">
             <p id="inicioMesa6">Hora de Inicio: </p>
             <p id="finMesa6">Hora Final: </p>
-            <p id="precio6">Precio: </p></td></tr>
+            <p id="precioMesa6">Precio: 0</p></td></tr>
             
         </table>
         </div>
-        <script>
-            
-            const RentaMesa= mesaID =>{
-            let mesa=document.getElementById(mesaID);
+        <script src="proyecto.js"></script>
 
-            if(mesa.src.match('mesaOff.PNG')){
-                mesa.src='mesaOn.PNG';
-                tiempo(mesaID,"si");
-                return;
-            }else{
-                mesa.src='mesaOff.PNG';
-                tiempo(mesaID,"no");
-                }
-            
-        }
-            
-            const tiempo = (mesaID,renta) =>{
-                let inicioRenta =document.getElementById("inicio"+mesaID)
-                let finRenta= document.getElementById("fin"+mesaID)
-
-                let laHora = new Date();
-                let horario = laHora.getHours();
-                let minutero = laHora.getMinutes();
-                let segundero = laHora.getSeconds();
-                if(minutero<10)
-                    minutero = "0" + minutero;
-                if(segundero<10)
-                    segundero = "0" + segundero;
-
-                if(renta=="si" && inicioRenta.innerHTML=="Hora de Inicio: "){
-                    inicioRenta.innerHTML= "Hora de Inicio: "+horario+":"+minutero+":"+segundero;
-                }
-                if(renta=="no" && finRenta.innerHTML=="Hora Final: "){
-                    finRenta.innerHTML= "Hora Final: "+horario+":"+minutero+":"+segundero;
-                }
-            }
-
-        </script>
- 
         <br><br>      
     </body>
 </html>
